@@ -1,0 +1,29 @@
+title: "Jean-Jacques Soleil y las pastillas negras"
+description: "Una novela visual sobre ver el mundo distinto. Santiago, autismo, y el metro como hilo conductor."
+baseurl: ""
+url: "https://TU-USUARIO.github.io"
+
+# Build settings
+theme: null
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Exclude from build
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+
+# Collections (optional for future blog/devlog)
+collections:
+  devlog:
+    output: true
+    permalink: /devlog/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
