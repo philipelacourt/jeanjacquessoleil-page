@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Substack form: redirect to real Substack page on submit
   // Replace the URL below with your actual Substack subscribe URL
-  const SUBSTACK_URL = 'https://lacourt.substack.com/subscribe';
+  const SUBSTACK_URL = 'https://lacourtcreations.substack.com/subscribe';
 
   const btn = document.querySelector('.substack-card__btn');
   const input = document.querySelector('.substack-card__input');
