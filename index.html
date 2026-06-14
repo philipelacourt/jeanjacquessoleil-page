@@ -58,29 +58,142 @@ permalink: /
   </div>
   <div class="origin__col origin__col--visual">
     <div class="origin__panel">
-      <div class="panel__metro-map">
-        <div class="metro-line">
-          <span class="metro-dot"></span>
-          <span class="metro-name">Baquedano</span>
-        </div>
-        <div class="metro-line">
-          <span class="metro-dot"></span>
-          <span class="metro-name">Santa Isabel</span>
-        </div>
-        <div class="metro-line">
-          <span class="metro-dot metro-dot--active"></span>
-          <span class="metro-name metro-name--active">Universidad de Chile</span>
-        </div>
-        <div class="metro-line">
-          <span class="metro-dot"></span>
-          <span class="metro-name">Toesca</span>
-        </div>
-        <div class="metro-line">
-          <span class="metro-dot"></span>
-          <span class="metro-name">Parque O'Higgins</span>
-        </div>
+      <div class="metro-map-container">
+        <svg id="metro-svg" viewBox="0 0 340 480" xmlns="http://www.w3.org/2000/svg" aria-label="Mapa del Metro de Santiago">
+
+          <!-- LÍNEA 2 (naranja) vertical izquierda -->
+          <line x1="80" y1="30" x2="80" y2="450" stroke="#f47920" stroke-width="5" stroke-linecap="round"/>
+
+          <!-- LÍNEA 5 (verde) horizontal inferior -->
+          <line x1="30" y1="370" x2="310" y2="370" stroke="#00a84f" stroke-width="5" stroke-linecap="round"/>
+
+          <!-- LÍNEA 1 (roja) horizontal media -->
+          <line x1="30" y1="200" x2="310" y2="200" stroke="#e3001b" stroke-width="5" stroke-linecap="round"/>
+
+          <!-- LÍNEA 4 (azul) vertical derecha -->
+          <line x1="240" y1="30" x2="240" y2="300" stroke="#1d4fa3" stroke-width="5" stroke-linecap="round"/>
+          <!-- L4 baja diagonal a L5 -->
+          <line x1="240" y1="300" x2="310" y2="370" stroke="#1d4fa3" stroke-width="5" stroke-linecap="round"/>
+
+          <!-- LÍNEA 2 estaciones (de norte a sur) -->
+          <!-- Cal y Canto (intersección L2-L5 norte... en realidad L2-L1) -->
+          <circle cx="80" cy="200" r="7" fill="#0a0a0a" stroke="#e3001b" stroke-width="3"/>
+          <text x="88" y="196" fill="rgba(245,241,234,0.5)" font-size="7" font-family="IBM Plex Mono, monospace">Cal y Canto</text>
+
+          <!-- Baquedano L2 -->
+          <circle cx="80" cy="240" r="6" fill="#0a0a0a" stroke="#f47920" stroke-width="2.5"/>
+          <text x="88" y="244" fill="rgba(245,241,234,0.4)" font-size="6.5" font-family="IBM Plex Mono, monospace">Baquedano</text>
+
+          <!-- Santa Isabel L2 -->
+          <circle cx="80" cy="280" r="6" fill="#0a0a0a" stroke="#f47920" stroke-width="2.5"/>
+          <text x="88" y="284" fill="rgba(245,241,234,0.4)" font-size="6.5" font-family="IBM Plex Mono, monospace">Santa Isabel</text>
+
+          <!-- Parque O'Higgins L2–L5 -->
+          <circle cx="80" cy="370" r="9" fill="#0a0a0a" stroke="#00a84f" stroke-width="3"/>
+          <circle cx="80" cy="370" r="5" fill="#f47920"/>
+          <text x="90" y="367" fill="rgba(245,241,234,0.5)" font-size="7" font-family="IBM Plex Mono, monospace">Parque O'Higgins</text>
+
+          <!-- Toesca L2 -->
+          <circle cx="80" cy="325" r="6" fill="#0a0a0a" stroke="#f47920" stroke-width="2.5"/>
+          <text x="88" y="329" fill="rgba(245,241,234,0.4)" font-size="6.5" font-family="IBM Plex Mono, monospace">Toesca</text>
+
+          <!-- LÍNEA 1 estaciones (oeste→este) -->
+          <!-- San Pablo -->
+          <circle cx="30" cy="200" r="5" fill="#0a0a0a" stroke="#e3001b" stroke-width="2"/>
+          <text x="36" y="196" fill="rgba(245,241,234,0.35)" font-size="6" font-family="IBM Plex Mono, monospace">San Pablo</text>
+
+          <!-- Pajaritos -->
+          <circle cx="60" cy="200" r="5" fill="#0a0a0a" stroke="#e3001b" stroke-width="2"/>
+
+          <!-- Universidad de Santiago -->
+          <circle cx="110" cy="200" r="6" fill="#0a0a0a" stroke="#e3001b" stroke-width="2.5"/>
+          <text x="114" y="194" fill="rgba(245,241,234,0.4)" font-size="6" font-family="IBM Plex Mono, monospace">U. de Santiago</text>
+
+          <!-- Estación Central -->
+          <circle cx="140" cy="200" r="6" fill="#0a0a0a" stroke="#e3001b" stroke-width="2.5"/>
+          <text x="144" y="194" fill="rgba(245,241,234,0.4)" font-size="6" font-family="IBM Plex Mono, monospace">Est. Central</text>
+
+          <!-- Universidad de Chile L1 — ESTACIÓN DESTACADA -->
+          <circle cx="175" cy="200" r="10" fill="#c084f5" stroke="#c084f5" stroke-width="2"/>
+          <circle cx="175" cy="200" r="6" fill="#2b1c6e"/>
+          <text x="180" y="192" fill="#c084f5" font-size="7.5" font-weight="bold" font-family="IBM Plex Mono, monospace">U. de Chile</text>
+
+          <!-- Santa Lucía -->
+          <circle cx="200" cy="200" r="6" fill="#0a0a0a" stroke="#e3001b" stroke-width="2.5"/>
+          <text x="204" y="194" fill="rgba(245,241,234,0.4)" font-size="6" font-family="IBM Plex Mono, monospace">Santa Lucía</text>
+
+          <!-- Baquedano L1 (transbordo L2) -->
+          <circle cx="80" cy="200" r="9" fill="#0a0a0a" stroke="#f47920" stroke-width="3"/>
+          <circle cx="80" cy="200" r="5" fill="#e3001b"/>
+
+          <!-- Universidad Católica -->
+          <circle cx="225" cy="200" r="6" fill="#0a0a0a" stroke="#e3001b" stroke-width="2.5"/>
+          <text x="229" y="194" fill="rgba(245,241,234,0.4)" font-size="6" font-family="IBM Plex Mono, monospace">U. Católica</text>
+
+          <!-- Tobalaba L1–L4 transbordo -->
+          <circle cx="240" cy="200" r="9" fill="#0a0a0a" stroke="#1d4fa3" stroke-width="3"/>
+          <circle cx="240" cy="200" r="5" fill="#e3001b"/>
+          <text x="246" y="194" fill="rgba(245,241,234,0.4)" font-size="6" font-family="IBM Plex Mono, monospace">Tobalaba</text>
+
+          <!-- Escuela Militar -->
+          <circle cx="270" cy="200" r="6" fill="#0a0a0a" stroke="#e3001b" stroke-width="2.5"/>
+          <text x="275" y="194" fill="rgba(245,241,234,0.4)" font-size="6" font-family="IBM Plex Mono, monospace">Esc. Militar</text>
+
+          <!-- Manquehue -->
+          <circle cx="295" cy="200" r="5" fill="#0a0a0a" stroke="#e3001b" stroke-width="2"/>
+
+          <!-- Las Condes -->
+          <circle cx="310" cy="200" r="5" fill="#0a0a0a" stroke="#e3001b" stroke-width="2"/>
+          <text x="295" y="213" fill="rgba(245,241,234,0.35)" font-size="6" font-family="IBM Plex Mono, monospace">Las Condes</text>
+
+          <!-- LÍNEA 4 estaciones (norte→sur) -->
+          <!-- Tobalaba ya está -->
+          <circle cx="240" cy="240" r="5" fill="#0a0a0a" stroke="#1d4fa3" stroke-width="2"/>
+          <text x="246" y="244" fill="rgba(245,241,234,0.35)" font-size="6" font-family="IBM Plex Mono, monospace">Cristóbal Colón</text>
+
+          <circle cx="240" cy="270" r="5" fill="#0a0a0a" stroke="#1d4fa3" stroke-width="2"/>
+          <text x="246" y="274" fill="rgba(245,241,234,0.35)" font-size="6" font-family="IBM Plex Mono, monospace">Francisco Bilbao</text>
+
+          <!-- Vicente Valdés L4–L5 transbordo -->
+          <circle cx="310" cy="370" r="9" fill="#0a0a0a" stroke="#1d4fa3" stroke-width="3"/>
+          <circle cx="310" cy="370" r="5" fill="#00a84f"/>
+          <text x="280" y="385" fill="rgba(245,241,234,0.4)" font-size="6.5" font-family="IBM Plex Mono, monospace">V. Valdés</text>
+
+          <!-- LÍNEA 5 estaciones clave -->
+          <!-- Baquedano L5 (occidental) -->
+          <circle cx="110" cy="370" r="5" fill="#0a0a0a" stroke="#00a84f" stroke-width="2"/>
+          <text x="114" y="367" fill="rgba(245,241,234,0.35)" font-size="6" font-family="IBM Plex Mono, monospace">Quinta Normal</text>
+
+          <circle cx="145" cy="370" r="5" fill="#0a0a0a" stroke="#00a84f" stroke-width="2"/>
+          <text x="149" y="367" fill="rgba(245,241,234,0.35)" font-size="6" font-family="IBM Plex Mono, monospace">Pudahuel</text>
+
+          <circle cx="175" cy="370" r="5" fill="#0a0a0a" stroke="#00a84f" stroke-width="2"/>
+
+          <circle cx="210" cy="370" r="5" fill="#0a0a0a" stroke="#00a84f" stroke-width="2"/>
+          <text x="214" y="367" fill="rgba(245,241,234,0.35)" font-size="6" font-family="IBM Plex Mono, monospace">Ñuñoa</text>
+
+          <circle cx="250" cy="370" r="5" fill="#0a0a0a" stroke="#00a84f" stroke-width="2"/>
+          <text x="254" y="367" fill="rgba(245,241,234,0.35)" font-size="6" font-family="IBM Plex Mono, monospace">Las Torres</text>
+
+          <!-- Leyenda de líneas -->
+          <rect x="15" y="430" width="8" height="8" rx="2" fill="#e3001b"/>
+          <text x="27" y="438" fill="rgba(245,241,234,0.5)" font-size="7" font-family="IBM Plex Mono, monospace">Línea 1</text>
+          <rect x="75" y="430" width="8" height="8" rx="2" fill="#f47920"/>
+          <text x="87" y="438" fill="rgba(245,241,234,0.5)" font-size="7" font-family="IBM Plex Mono, monospace">Línea 2</text>
+          <rect x="135" y="430" width="8" height="8" rx="2" fill="#1d4fa3"/>
+          <text x="147" y="438" fill="rgba(245,241,234,0.5)" font-size="7" font-family="IBM Plex Mono, monospace">Línea 4</text>
+          <rect x="195" y="430" width="8" height="8" rx="2" fill="#00a84f"/>
+          <text x="207" y="438" fill="rgba(245,241,234,0.5)" font-size="7" font-family="IBM Plex Mono, monospace">Línea 5</text>
+
+          <!-- Indicador U. de Chile -->
+          <circle cx="175" cy="200" r="16" fill="none" stroke="#c084f5" stroke-width="1" stroke-dasharray="3,3" opacity="0.6">
+            <animate attributeName="r" values="14;18;14" dur="2s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.6;0.2;0.6" dur="2s" repeatCount="indefinite"/>
+          </circle>
+
+        </svg>
+        <div class="panel__caption">Metro de Santiago · circa 2010s<br>Líneas 1 · 2 · 4 · 5</div>
       </div>
-      <div class="panel__caption">El metro de Santiago<br>como hilo conductor</div>
     </div>
   </div>
 </section>
@@ -117,30 +230,37 @@ permalink: /
   </div>
 </section>
 
-<!-- ========== PUZZLES ========== -->
-<section class="puzzles">
-  <div class="puzzles__inner">
-    <span class="section-label">El juego</span>
-    <h2 class="puzzles__title">Tres puzzles.<br>Una escritura que no conoces.</h2>
-    <p class="puzzles__body">
-      Para avanzar, tendrás que aprender fragmentos de un abugida — un sistema de escritura inventado para el juego. Cada puzzle revela algo de Jean-Jacques que el texto no te dice directamente.
+<!-- ========== PRÓXIMAMENTE ========== -->
+<section class="proximamente">
+  <div class="proximamente__inner">
+    <span class="section-label section-label--light">El juego</span>
+    <h2 class="proximamente__title">Próximamente.</h2>
+    <p class="proximamente__body">
+      Jean-Jacques Soleil y las pastillas negras está en desarrollo.<br>
+      Sigue el proceso en nuestras redes.
     </p>
-    <div class="puzzles__grid">
-      <div class="puzzle-card">
-        <div class="puzzle-card__num">01</div>
-        <div class="puzzle-card__title">El mapa</div>
-        <div class="puzzle-card__desc">Descifra la ruta que Jean-Jacques memoriza cada mañana.</div>
-      </div>
-      <div class="puzzle-card puzzle-card--mid">
-        <div class="puzzle-card__num">02</div>
-        <div class="puzzle-card__title">La guía de tránsito</div>
-        <div class="puzzle-card__desc">Una coleccionable escrita en el abugida. La respuesta está entre las líneas.</div>
-      </div>
-      <div class="puzzle-card">
-        <div class="puzzle-card__num">03</div>
-        <div class="puzzle-card__title">El cubo</div>
-        <div class="puzzle-card__desc">Un objeto personal. El puzzle final.</div>
-      </div>
+    <div class="social-icons">
+      <!-- YouTube -->
+      <a href="#" class="social-icon" aria-label="YouTube">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" fill="currentColor"/>
+          <polygon points="9.75,15.02 15.5,12 9.75,8.98 9.75,15.02" fill="#3730a3"/>
+        </svg>
+      </a>
+      <!-- TikTok -->
+      <a href="#" class="social-icon" aria-label="TikTok">
+        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/>
+        </svg>
+      </a>
+      <!-- Instagram -->
+      <a href="#" class="social-icon" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="currentColor" stroke-width="2"/>
+          <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/>
+          <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/>
+        </svg>
+      </a>
     </div>
   </div>
 </section>
@@ -158,7 +278,21 @@ permalink: /
       REEMPLAZA ESTO con tu embed de Substack:
       Ve a substack.com > Settings > Embed > copia el iframe
     -->
-    <iframe src="https://lacourtcreations.substack.com/embed" width="480" height="320" style="border: 1px solid #EEE; background: white" frameborder="0" scrolling="no"></iframe>
+    <div class="newsletter__embed">
+      <div class="substack-card">
+        <div class="substack-card__icon">◉</div>
+        <div class="substack-card__title">Lacourt and Company Newsletter</div>
+        <div class="substack-card__sub">by Philipe Lacourt</div>
+        <div class="substack-card__form">
+          <input type="email" placeholder="Tu correo electrónico" class="substack-card__input" />
+          <button class="substack-card__btn">Suscribirse</button>
+        </div>
+        <div class="substack-card__legal">
+          Al suscribirte aceptas los términos de uso de Substack y nuestra política de privacidad.
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 {% include footer.html %}
